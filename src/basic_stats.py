@@ -8,3 +8,5 @@ def load_and_describe(path):
 
 if __name__ == "__main__":
     load_and_describe("data/sample.csv")
+    print("\nMissing values:\n", df.isnull().sum())
+
