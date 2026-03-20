@@ -1,12 +1,8 @@
 import pandas as pd
+from sklearn.datasets import fetch_california_housing
 
-def load_and_describe(path):
-    df = pd.read_csv(path)
-    print("Shape:", df.shape)
-    print("\nFirst 5 rows:\n", df.head())
-    print("\nBasic Statistics:\n", df.describe())
+data = fetch_california_housing(as_frame=True)
+df = data.frame
 
-if __name__ == "__main__":
-    load_and_describe("data/sample.csv")
-    print("\nMissing values:\n", df.isnull().sum())
-
+print(df.head())
+df.to_csv("data/california_housing.csv", index=False)
